@@ -119,7 +119,7 @@ _do_main() {
       # local _CMD="java -jar ${_JAR_PATH} --port=${_PORT} --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} > /tmp/wiremock.log &"
       local _CMD="java -jar ${_JAR_PATH} --verbose --port=${_PORT} --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} &"
 
-      _down ${_PORT}
+      _down "${_PORT}"
 
       debug "${_CMD}"
       eval "${_CMD}"
@@ -131,6 +131,12 @@ _do_main() {
       local _PORT="${_ARGUMENTS[1]:-9999}"
       _down "${_PORT}"
       
+      echo -e ''
+		  show_success "Process killed on port ${_PORT}"
+      ;;
+    "snapshot")
+      
+
       echo -e ''
 		  show_success "Process killed on port ${_PORT}"
       ;;
