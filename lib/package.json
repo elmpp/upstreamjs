@@ -1,0 +1,36 @@
+{
+    "name": "upstreamjs",
+    "version": "0.47.0",
+    "description": "Toolkit for development with upstream dependencies",
+    "keywords": [
+        "js",
+        "typescript",
+        "wiremock",
+        "upstream"
+    ],
+    "author": "Matt Penrice <matthew.penrice@gmail.com>",
+    "homepage": "https://github.com/elmpp/partridge#readme",
+    "license": "ISC",
+    "main": "lib/upstreamjs.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/elmpp/partridge.git"
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "build:watch": "npm run build -- -w",
+        "generate-client": "java -jar bin/swagger-codegen-cli.jar generate -i ../partridge-etc/wiremock-spec/swagger.json -l typescript-node -o src/client",
+        "transpile": "npm run build",
+        "type-check": "tsc --noEmit"
+    },
+    "bugs": {
+        "url": "https://github.com/elmpp/partridge/issues"
+    },
+    "devDependencies": {
+        "@types/commander": "^2.12.2"
+    },
+    "dependencies": {
+        "commander": "^2.19.0",
+        "shell": "^0.47.0"
+    }
+}

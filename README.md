@@ -4,8 +4,6 @@
 
 ## Usage
 
-```
-const upstreamjs = require('upstreamjs');
+ - please have [Swagger codegen](https://goo.gl/vMUawZ) available on your dev env
 
-// TODO: DEMONSTRATE API
-```
+

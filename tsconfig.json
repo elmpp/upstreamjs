@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "src/**/__tests__/**/*",
+    "src/**/__mocks__/**/*"
+  ]
+}
