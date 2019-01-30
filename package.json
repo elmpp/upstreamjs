@@ -20,6 +20,7 @@
     "build": "tsc -p tsconfig.json",
     "build:watch": "npm run build -- -w",
     "generate-client": "java -jar bin/swagger-codegen-cli.jar generate -i ../partridge-etc/wiremock-spec/swagger.json -l typescript-node -o src/client",
+    "lint": "npm run type-check",
     "transpile": "npm run build",
     "type-check": "tsc --noEmit"
   },
