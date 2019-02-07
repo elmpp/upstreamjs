@@ -3,10 +3,11 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "lib",
-    "lib": ["es2015", "dom"],
     "noImplicitAny": false,
     "module": "commonjs",
     "resolveJsonModule": true,
+    "target": "es6", // node 10 most likely
+    "lib": ["es6"],
   },
   "include": ["src/**/*.ts"],
 }
