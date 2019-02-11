@@ -2,7 +2,7 @@
 
 _PACKAGEBASE=packages/upstreamjs
 # shellcheck disable=SC2034
-_SUBCOMMAND_PROGRAM_LIST='generate up down snapshot'
+_SUBCOMMAND_PROGRAM_LIST='up down snapshot'
 _VERSION=1.2.0
 
 #
@@ -85,7 +85,6 @@ Usage:
   ${_ME} up <root-dir> <path-to-jar> <port>
   ${_ME} down
   ${_ME} snapshot
-  ${_ME} generate-api-client <schema> <outputDir>
   ${_ME} logout [--force]
   ${_ME} -h | --help
   ${_ME} --version
@@ -93,7 +92,6 @@ Subcommands:
   up                     Brings up wiremock
   down                   Takes down (all) wiremock instances
   snapshot               Creates stub mappings after some requests - https://goo.gl/7mnHyo -> snapshotting
-  generate-api-client    Generates api client library from the swagger docs - https://goo.gl/WP8qTs
 Options:
   -h --help  Display this help information.
   --version  Display version information.
@@ -108,16 +106,19 @@ EOM
 _do_main() {
   _debug printf "_do_main() >> start\\n"
 
+  local _DEFAULT_DATA_DIR="${_PACKAGEBASE}/../partridge-etc/wiremock-data"
+
   case "${_SUBCOMMAND}" in
     "up")
-      local _DATA_DIR
-      _DATA_DIR=$(_require_argument "${_ARGUMENTS[1]:-}" "DATA_DIR. e.g. \"\`pwd\`/../partridge-etc/wiremock\"")
+      local _DATA_DIR="${_ARGUMENTS[1]:-${_DEFAULT_DATA_DIR}}"
       local _JAR_PATH="${_ARGUMENTS[2]:-${__FULLPROJECTPATH}/${_PACKAGEBASE}/bin/wiremock.jar}"
       local _PORT="${_ARGUMENTS[3]:-9999}"
       local _PASSTHRU_OPTIONS
       _PASSTHRU_OPTIONS=$(_passthru_options '--verbose')
-      # local _CMD="java -jar ${_JAR_PATH} --port=${_PORT} --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} > /tmp/wiremock.log &"
-      local _CMD="java -jar ${_JAR_PATH} --verbose --port=${_PORT} --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} &"
+
+      # wiremock options - https://goo.gl/BycVB4
+      # local _CMD="java -jar ${_JAR_PATH} --verbose --port=${_PORT} --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} &"
+      local _CMD="java -Xmx2048m -jar ${_JAR_PATH} --port=${_PORT} --verbose --root-dir=${_DATA_DIR} ${_PASSTHRU_OPTIONS} > /tmp/wiremock.log &"
 
       _down "${_PORT}"
 
@@ -125,7 +126,10 @@ _do_main() {
       eval "${_CMD}"
 
       echo -e ''
-		  show_success "Wiremock running. Admin: http://localhost:${_PORT}/__admin/docs"
+		  show_success "Wiremock running."
+		  show_success "Logs: /tmp/wiremock.log"
+		  show_success "Admin: http://localhost:${_PORT}/__admin/docs"
+      echo -e ''
       ;;
     "down")
       local _PORT="${_ARGUMENTS[1]:-9999}"
@@ -135,10 +139,63 @@ _do_main() {
 		  show_success "Process killed on port ${_PORT}"
       ;;
     "snapshot")
+
+      # docs - https://goo.gl/8gt7Wy . Also see postman entries (look at request body)
+      local _FEED_SUPPLIER
+      _FEED_SUPPLIER=$(_require_argument "${_ARGUMENTS[1]:-}" "Feed Supplier (coral|etc)")
+      local _STUB_FILENAMESUFFIX
+      _STUB_FILENAMESUFFIX=$(_require_argument "${_ARGUMENTS[2]:-}" "FILENAME REQUIRED!. Filename by which the stub data will be saved to. Will be prefixed by feed supplier name and date. e.g. 'categories-full-run' -> DATA_DIR/__files/coral-07072017-categories-full-run.json")
+
+      local _SNAPSHOT_REQUEST_BODY
+      _SNAPSHOT_REQUEST_BODY=$(cat <<END_HEREDOC
+{
+  "filters" : {
+      "method" : "ANY",
+      "headers" : {
+        "x-feed-supplier" : {
+            "equalTo" : "${_FEED_SUPPLIER}"
+        }
+      }
+  },
+  "captureHeaders": {
+    "x-feed-supplier": {
+      "caseInsensitive": true
+    },
+    "Accept": {
+      "caseInsensitive": true
+    }
+  },
+  "repeatsAsScenarios": false,
+	"outputFormat": "IDS"
+}
+END_HEREDOC
+)
+
+      local _STUBFILEIDSRAW
+      local _STUBFILEIDS
+
+      set -x
+      _STUBFILEIDSRAW=$(curl -X POST \
+        --data "${_SNAPSHOT_REQUEST_BODY}" \
+        http://localhost:9999/__admin/recordings/snapshot \
+        -H 'Accept: application/json' \
+        -H 'Content-Type: application/x-www-form-urlencoded' \
+        -H 'cache-control: no-cache'
+      )
+      set +x
       
+      _STUBFILEIDS=$(echo "${_STUBFILEIDSRAW}" | jq --raw-output '.ids[]')
+
+      for _STUBID in ${_STUBFILEIDS};
+      do
+      [ -z "${_STUBID}" ] && continue
+        local _CMD="mv ${_DEFAULT_DATA_DIR}/mappings/*${_STUBID}.json ${_DEFAULT_DATA_DIR}/mappings/${_FEED_SUPPLIER}-$(date +%d%m%Y)-${_STUB_FILENAMESUFFIX}-${_STUBID}.json"
+        debug "${_CMD}"
+        eval "${_CMD}"
+      done
 
       echo -e ''
-		  show_success "Process killed on port ${_PORT}"
+		  show_success "Snapshot created and /mappings files renamed"
       ;;
     "help")
       _print_help
