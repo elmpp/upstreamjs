@@ -7,6 +7,11 @@
     "noImplicitAny": false,
     "module": "commonjs",
     "resolveJsonModule": true,
+<<<<<<< HEAD
+=======
+    "target": "es6",
+    "lib": ["es6"],
+>>>>>>> 6f9ef49... WIP: upstream not working
   },
   "include": ["src/**/*.ts"],
 }
