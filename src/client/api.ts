@@ -1173,7 +1173,7 @@ export class DefaultApi {
     /**
      * Delete all stub mappings
      */
-    public mappingsDelete () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsDelete () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1200,7 +1200,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1218,7 +1218,7 @@ export class DefaultApi {
      * Find stubs by matching on their metadata
      * @param body 
      */
-    public mappingsFindByMetadataPost (body: ContentPattern) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsFindByMetadataPost (body: ContentPattern) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings/find-by-metadata';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1251,7 +1251,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1270,7 +1270,7 @@ export class DefaultApi {
      * @param limit The maximum number of results to return
      * @param offset The start index of the results to return
      */
-    public mappingsGet (limit?: number, offset?: number) : Promise<{ response: http.ServerResponse; body: StubMappings;  }> {
+    public mappingsGet (limit?: number, offset?: number) : Promise<{ response: http.ClientResponse; body: StubMappings;  }> {
         const localVarPath = this.basePath + '/mappings';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1305,7 +1305,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMappings;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMappings;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1324,7 +1324,7 @@ export class DefaultApi {
      * Create a new stub mapping
      * @param body 
      */
-    public mappingsPost (body: StubMapping) : Promise<{ response: http.ServerResponse; body: StubMapping;  }> {
+    public mappingsPost (body: StubMapping) : Promise<{ response: http.ClientResponse; body: StubMapping;  }> {
         const localVarPath = this.basePath + '/mappings';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1357,7 +1357,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMapping;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMapping;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1376,7 +1376,7 @@ export class DefaultApi {
      * Remove stubs by matching on their metadata
      * @param body 
      */
-    public mappingsRemoveByMetadataPost (body: ContentPattern) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsRemoveByMetadataPost (body: ContentPattern) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings/remove-by-metadata';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1409,7 +1409,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1426,7 +1426,7 @@ export class DefaultApi {
     /**
      * Reset stub mappings (restore to defaults defined back the backing store)
      */
-    public mappingsResetPost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsResetPost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings/reset';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1453,7 +1453,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1470,7 +1470,7 @@ export class DefaultApi {
     /**
      * Save all persistent stub mappings to the backing store
      */
-    public mappingsSavePost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsSavePost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings/save';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1497,7 +1497,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1515,7 +1515,7 @@ export class DefaultApi {
      * Delete a stub mapping
      * @param stubMappingId The UUID of stub mapping
      */
-    public mappingsStubMappingIdDelete (stubMappingId: string) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public mappingsStubMappingIdDelete (stubMappingId: string) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/mappings/{stubMappingId}'
             .replace('{' + 'stubMappingId' + '}', encodeURIComponent(String(stubMappingId)));
         let localVarQueryParameters: any = {};
@@ -1548,7 +1548,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1566,7 +1566,7 @@ export class DefaultApi {
      * Get a single stub mapping
      * @param stubMappingId The UUID of stub mapping
      */
-    public mappingsStubMappingIdGet (stubMappingId: string) : Promise<{ response: http.ServerResponse; body: StubMapping;  }> {
+    public mappingsStubMappingIdGet (stubMappingId: string) : Promise<{ response: http.ClientResponse; body: StubMapping;  }> {
         const localVarPath = this.basePath + '/mappings/{stubMappingId}'
             .replace('{' + 'stubMappingId' + '}', encodeURIComponent(String(stubMappingId)));
         let localVarQueryParameters: any = {};
@@ -1599,7 +1599,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMapping;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMapping;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1619,7 +1619,7 @@ export class DefaultApi {
      * @param stubMappingId The UUID of stub mapping
      * @param body 
      */
-    public mappingsStubMappingIdPut (stubMappingId: string, body: StubMapping) : Promise<{ response: http.ServerResponse; body: StubMapping;  }> {
+    public mappingsStubMappingIdPut (stubMappingId: string, body: StubMapping) : Promise<{ response: http.ClientResponse; body: StubMapping;  }> {
         const localVarPath = this.basePath + '/mappings/{stubMappingId}'
             .replace('{' + 'stubMappingId' + '}', encodeURIComponent(String(stubMappingId)));
         let localVarQueryParameters: any = {};
@@ -1658,7 +1658,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMapping;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMapping;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1677,7 +1677,7 @@ export class DefaultApi {
      * Find at most 3 near misses for closest logged requests to the specified request pattern
      * @param body 
      */
-    public nearMissesRequestPatternPost (body: RequestPattern) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public nearMissesRequestPatternPost (body: RequestPattern) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/near-misses/request-pattern';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1710,7 +1710,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1728,7 +1728,7 @@ export class DefaultApi {
      * Find at most 3 near misses for closest stub mappings to the specified request
      * @param body 
      */
-    public nearMissesRequestPost (body: LoggedRequest) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public nearMissesRequestPost (body: LoggedRequest) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/near-misses/request';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1761,7 +1761,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1779,7 +1779,7 @@ export class DefaultApi {
      * Take a snapshot recording
      * @param body 
      */
-    public recordingsSnapshotPost (body: Snapshot) : Promise<{ response: http.ServerResponse; body: StubMappings;  }> {
+    public recordingsSnapshotPost (body: Snapshot) : Promise<{ response: http.ClientResponse; body: StubMappings;  }> {
         const localVarPath = this.basePath + '/recordings/snapshot';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1812,7 +1812,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMappings;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMappings;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1831,7 +1831,7 @@ export class DefaultApi {
      * Start recording stub mappings
      * @param body 
      */
-    public recordingsStartPost (body: StartRecording) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public recordingsStartPost (body: StartRecording) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/recordings/start';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1864,7 +1864,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1881,7 +1881,7 @@ export class DefaultApi {
     /**
      * Get the recording status (started or stopped)
      */
-    public recordingsStatusGet () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public recordingsStatusGet () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/recordings/status';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1908,7 +1908,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1925,7 +1925,7 @@ export class DefaultApi {
     /**
      * Stop recording stub mappings
      */
-    public recordingsStopPost () : Promise<{ response: http.ServerResponse; body: StubMappings;  }> {
+    public recordingsStopPost () : Promise<{ response: http.ClientResponse; body: StubMappings;  }> {
         const localVarPath = this.basePath + '/recordings/stop';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1952,7 +1952,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: StubMappings;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: StubMappings;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -1971,7 +1971,7 @@ export class DefaultApi {
      * Count requests logged in the journal matching the specified criteria
      * @param body 
      */
-    public requestsCountPost (body: RequestPattern) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsCountPost (body: RequestPattern) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/count';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2004,7 +2004,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2021,7 +2021,7 @@ export class DefaultApi {
     /**
      * Delete all received requests
      */
-    public requestsDelete () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsDelete () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2048,7 +2048,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2066,7 +2066,7 @@ export class DefaultApi {
      * Retrieve details of requests logged in the journal matching the specified criteria
      * @param body 
      */
-    public requestsFindPost (body: RequestPattern) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsFindPost (body: RequestPattern) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/find';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2099,7 +2099,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2118,7 +2118,7 @@ export class DefaultApi {
      * @param limit The maximum number of results to return
      * @param since Only return logged requests after this date
      */
-    public requestsGet (limit?: string, since?: string) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsGet (limit?: string, since?: string) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2153,7 +2153,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2171,7 +2171,7 @@ export class DefaultApi {
      * 
      * @param requestId The UUID of the logged request
      */
-    public requestsRequestIdGet (requestId: string) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsRequestIdGet (requestId: string) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/{requestId}'
             .replace('{' + 'requestId' + '}', encodeURIComponent(String(requestId)));
         let localVarQueryParameters: any = {};
@@ -2204,7 +2204,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2221,7 +2221,7 @@ export class DefaultApi {
     /**
      * Empty the request journal
      */
-    public requestsResetPost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsResetPost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/reset';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2248,7 +2248,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2265,7 +2265,7 @@ export class DefaultApi {
     /**
      * Get details of logged requests that weren't matched by any stub mapping
      */
-    public requestsUnmatchedGet () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsUnmatchedGet () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/unmatched';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2292,7 +2292,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2309,7 +2309,7 @@ export class DefaultApi {
     /**
      * Retrieve near-misses for all unmatched requests
      */
-    public requestsUnmatchedNearMissesGet () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public requestsUnmatchedNearMissesGet () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/requests/unmatched/near-misses';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2336,7 +2336,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2353,7 +2353,7 @@ export class DefaultApi {
     /**
      * Reset mappings to the default set and reset the request journal
      */
-    public resetPost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public resetPost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/reset';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2380,7 +2380,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2397,7 +2397,7 @@ export class DefaultApi {
     /**
      * Get all scenarios
      */
-    public scenariosGet () : Promise<{ response: http.ServerResponse; body: Scenarios;  }> {
+    public scenariosGet () : Promise<{ response: http.ClientResponse; body: Scenarios;  }> {
         const localVarPath = this.basePath + '/scenarios';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2424,7 +2424,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body: Scenarios;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body: Scenarios;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2442,7 +2442,7 @@ export class DefaultApi {
     /**
      * Reset the state of all scenarios
      */
-    public scenariosResetPost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public scenariosResetPost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/scenarios/reset';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2469,7 +2469,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2487,7 +2487,7 @@ export class DefaultApi {
      * Update global settings
      * @param body 
      */
-    public settingsPost (body: GlobalSettings) : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public settingsPost (body: GlobalSettings) : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/settings';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2520,7 +2520,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
@@ -2537,7 +2537,7 @@ export class DefaultApi {
     /**
      * Shutdown the WireMock server
      */
-    public shutdownPost () : Promise<{ response: http.ServerResponse; body?: any;  }> {
+    public shutdownPost () : Promise<{ response: http.ClientResponse; body?: any;  }> {
         const localVarPath = this.basePath + '/shutdown';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2564,7 +2564,7 @@ export class DefaultApi {
                 localVarRequestOptions.form = localVarFormParams;
             }
         }
-        return new Promise<{ response: http.ServerResponse; body?: any;  }>((resolve, reject) => {
+        return new Promise<{ response: http.ClientResponse; body?: any;  }>((resolve, reject) => {
             localVarRequest(localVarRequestOptions, (error, response, body) => {
                 if (error) {
                     reject(error);
