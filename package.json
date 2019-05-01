@@ -1,6 +1,6 @@
 {
   "name": "upstreamjs",
-  "version": "0.51.0",
+  "version": "0.52.0-prerelease.0",
   "description": "Toolkit for development with upstream dependencies",
   "keywords": [
     "js",
