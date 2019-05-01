@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import localVarRequest = require('request');
 import http = require('http');
 import Promise = require('bluebird');
@@ -343,119 +342,119 @@ export declare class DefaultApi {
     setDefaultAuthentication(auth: Authentication): void;
     setApiKey(key: DefaultApiApiKeys, value: string): void;
     mappingsDelete(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsFindByMetadataPost(body: ContentPattern): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsGet(limit?: number, offset?: number): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMappings;
     }>;
     mappingsPost(body: StubMapping): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMapping;
     }>;
     mappingsRemoveByMetadataPost(body: ContentPattern): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsResetPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsSavePost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsStubMappingIdDelete(stubMappingId: string): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     mappingsStubMappingIdGet(stubMappingId: string): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMapping;
     }>;
     mappingsStubMappingIdPut(stubMappingId: string, body: StubMapping): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMapping;
     }>;
     nearMissesRequestPatternPost(body: RequestPattern): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     nearMissesRequestPost(body: LoggedRequest): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     recordingsSnapshotPost(body: Snapshot): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMappings;
     }>;
     recordingsStartPost(body: StartRecording): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     recordingsStatusGet(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     recordingsStopPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: StubMappings;
     }>;
     requestsCountPost(body: RequestPattern): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsDelete(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsFindPost(body: RequestPattern): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsGet(limit?: string, since?: string): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsRequestIdGet(requestId: string): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsResetPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsUnmatchedGet(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     requestsUnmatchedNearMissesGet(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     resetPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     scenariosGet(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body: Scenarios;
     }>;
     scenariosResetPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     settingsPost(body: GlobalSettings): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
     shutdownPost(): Promise<{
-        response: http.ServerResponse;
+        response: http.ClientResponse;
         body?: any;
     }>;
 }
