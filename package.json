@@ -1,6 +1,6 @@
 {
   "name": "upstreamjs",
-  "version": "0.53.0-prerelease.0",
+  "version": "0.52.0",
   "description": "Toolkit for development with upstream dependencies",
   "keywords": [
     "js",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "commander": "^2.19.0",
-    "shell": "^0.53.0-prerelease.0"
+    "shell": "^0.52.0"
   },
   "bin": {
     "wiremock": "./lib/cli/wiremock.js",
