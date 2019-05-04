@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import localVarRequest = require('request');
 import http = require('http');
 import Promise = require('bluebird');
